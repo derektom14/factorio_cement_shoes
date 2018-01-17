@@ -15,7 +15,7 @@ script.on_event({defines.events.on_player_changed_position},
 				for j=-area,area do
 					if cement_count < cement_inventory then
 						local tile_name = player.surface.get_tile(player.character.position.x+i,player.character.position.y+j).name
-						if tile_name ~= 'concrete' and tile_name ~= 'water' then
+						if not string.find(tile_name, 'concrete') and tile_name ~= 'water' then
 							tiles[#tiles+1]={name="concrete",position={player.character.position.x+i,player.character.position.y+j}}
 							cement_count = cement_count + 1
 							if tile_name == 'stone-path' then
