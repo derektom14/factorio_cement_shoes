@@ -36,19 +36,23 @@ end
 script.on_event({defines.events.on_player_changed_position},
    function (e)
     local player = game.players[e.player_index];
-	local armor = player.get_inventory(defines.inventory.player_armor)[1]
-	if armor ~= nil then
-		local cement_shoes_count = armor.grid.get_contents()['cement-shoes-equipment']
-		if cement_shoes_count ~= nil and cement_shoes_count >= 1 then
-			place(game, player, cement_shoes_count - 1, 'concrete', 'concrete', function(ignore_tile)
-				return string.find(ignore_tile, 'concrete') or ignore_tile == 'water'
-			end, {['stone-path']='stone-brick'})
-		else
-			local brick_shoes_count = armor.grid.get_contents()['brick-shoes-equipment']
-			if brick_shoes_count ~= nil and brick_shoes_count >= 1 then
-				place(game, player, brick_shoes_count - 1, 'stone-brick', 'stone-path', function(ignore_tile)
-				return string.find(ignore_tile, 'concrete') or ignore_tile == 'stone-path' or ignore_tile == 'water'
-			end, {})
+	if player.vehicle then
+		return -- TODO: check vehicle's grid and inventory instead
+	else
+		local armor = player.get_inventory(defines.inventory.player_armor)[1]
+		if armor ~= nil then
+			local cement_shoes_count = armor.grid.get_contents()['cement-shoes-equipment']
+			if cement_shoes_count ~= nil and cement_shoes_count >= 1 then
+				place(game, player, cement_shoes_count - 1, 'concrete', 'concrete', function(ignore_tile)
+					return string.find(ignore_tile, 'concrete') or ignore_tile == 'water'
+				end, {['stone-path']='stone-brick'})
+			else
+				local brick_shoes_count = armor.grid.get_contents()['brick-shoes-equipment']
+				if brick_shoes_count ~= nil and brick_shoes_count >= 1 then
+					place(game, player, brick_shoes_count - 1, 'stone-brick', 'stone-path', function(ignore_tile)
+					return string.find(ignore_tile, 'concrete') or ignore_tile == 'stone-path' or ignore_tile == 'water'
+				end, {})
+				end
 			end
 		end
 	end
