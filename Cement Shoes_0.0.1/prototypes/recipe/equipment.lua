@@ -12,5 +12,17 @@ data:extend(
     },
     result = "cement-shoes-equipment"
   },
+  {
+    type = "recipe",
+    name = "brick-shoes",
+    enabled = false,
+    energy_required = 10,
+    ingredients =
+    {
+	  {"fast-transport-belt", 10},
+      {"stone-brick", 2},
+    },
+    result = "brick-shoes-equipment"
+  },
 }
 )
