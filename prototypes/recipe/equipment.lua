@@ -24,5 +24,17 @@ data:extend(
     },
     result = "brick-shoes-equipment"
   },
+  {
+    type = "recipe",
+    name = "landfill-shoes",
+    enabled = false,
+    energy_required = 10,
+    ingredients =
+    {
+	  {"fast-transport-belt", 10},
+      {"landfill", 2},
+    },
+    result = "landfill-shoes-equipment"
+  },
 }
 )

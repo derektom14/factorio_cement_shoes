@@ -16,6 +16,10 @@ data:extend(
         type = "unlock-recipe",
         recipe = "brick-shoes"
       },
+	  {
+		type = "unlock-recipe",
+		recipe = "landfill-shoes",
+	  },
     },
     unit =
     {

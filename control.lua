@@ -33,18 +33,25 @@ local function place(entity, inventory, radius, inventory_type, tile_type, ignor
 end
 
 local function check_for_shoes(entity, grid, inventory_kind)
+	local landfill_shoes_count = grid.get_contents()['landfill-shoes-equipment']
+	if landfill_shoes_count ~= nil and landfill_shoes_count >= 1 then
+		place(entity, entity.get_inventory(inventory_kind), landfill_shoes_count, 'landfill', 'grass-1', function(ignore_tile)
+			return not string.find(ignore_tile, 'water')
+		end, {})
+	end
+
+	local brick_shoes_count = grid.get_contents()['brick-shoes-equipment']
+	if brick_shoes_count ~= nil and brick_shoes_count >= 1 then
+		place(entity, entity.get_inventory(inventory_kind), brick_shoes_count - 1, 'stone-brick', 'stone-path', function(ignore_tile)
+			return string.find(ignore_tile, 'concrete') or ignore_tile == 'stone-path' or string.find(ignore_tile, 'water')
+		end, {})
+	end
+
 	local cement_shoes_count = grid.get_contents()['cement-shoes-equipment']
 	if cement_shoes_count ~= nil and cement_shoes_count >= 1 then
 		place(entity, entity.get_inventory(inventory_kind), cement_shoes_count - 1, 'concrete', 'concrete', function(ignore_tile)
-			return string.find(ignore_tile, 'concrete') or ignore_tile == 'water'
+			return string.find(ignore_tile, 'concrete') or string.find(ignore_tile, 'water')
 		end, {['stone-path']='stone-brick'})
-	else
-		local brick_shoes_count = grid.get_contents()['brick-shoes-equipment']
-		if brick_shoes_count ~= nil and brick_shoes_count >= 1 then
-			place(entity, entity.get_inventory(inventory_kind), brick_shoes_count - 1, 'stone-brick', 'stone-path', function(ignore_tile)
-				return string.find(ignore_tile, 'concrete') or ignore_tile == 'stone-path' or ignore_tile == 'water'
-			end, {})
-		end
 	end
 end
 
