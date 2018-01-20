@@ -33,6 +33,9 @@ local function place(entity, inventory, radius, inventory_type, tile_type, ignor
 end
 
 local function check_for_shoes(entity, grid, inventory_kind)
+	if not grid then
+		return
+	end
 	local landfill_shoes_count = grid.get_contents()['landfill-shoes-equipment']
 	if landfill_shoes_count ~= nil and landfill_shoes_count >= 1 then
 		place(entity, entity.get_inventory(inventory_kind), landfill_shoes_count, 'landfill', 'grass-1', function(ignore_tile)
@@ -61,9 +64,9 @@ script.on_event({defines.events.on_player_changed_position},
 	if player.vehicle then
 		check_for_shoes(player.vehicle, player.vehicle.grid, defines.inventory.car_trunk)
 	else
-		local armor = player.get_inventory(defines.inventory.player_armor)[1]
-		if armor then
-			check_for_shoes(player, armor.grid, defines.inventory.player_main)
+		local armor_inventory = player.get_inventory(defines.inventory.player_armor)
+		if armor_inventory.get_item_count() > 0 then
+			check_for_shoes(player, armor_inventory[1].grid, defines.inventory.player_main)
 		end
 	end
    end
