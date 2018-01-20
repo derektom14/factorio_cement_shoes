@@ -22,3 +22,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Shoes no longer have any effect while the player is in a vehicle
 - A vehicle equipped with shoes will place tiles from its trunk as it moves
 - If more brick shoes are worn than cement shoes, stone will be placed where concrete is not
+
+## 0.0.4
+
+- Bugfix: No longer crashes when getting into vehicle without grid or moving without armor
