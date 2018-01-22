@@ -26,3 +26,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## 0.0.4
 
 - Bugfix: No longer crashes when getting into vehicle without grid or moving without armor
+
+## 0.1.0
+
+- Added settings to enable/disable concrete replacing stone path and stone path replacing concrete
+- Added setting to control volume of tile placement sound
