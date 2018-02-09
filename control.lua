@@ -69,7 +69,7 @@ script.on_event({defines.events.on_player_changed_position},
 		check_for_shoes(player, player.vehicle, player.vehicle.grid, defines.inventory.car_trunk)
 	else
 		local armor_inventory = player.get_inventory(defines.inventory.player_armor)
-		if armor_inventory.get_item_count() > 0 then
+		if armor_inventory and armor_inventory.get_item_count() > 0 then
 			check_for_shoes(player, player, armor_inventory[1].grid, defines.inventory.player_main)
 		end
 	end
