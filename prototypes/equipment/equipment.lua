@@ -22,9 +22,9 @@ data:extend(
 	{
 		type = "electric",
 		usage_priority = "secondary-input",
-      buffer_capacity = "0kJ",
+        buffer_capacity = "0kJ",
 	},
-	energy_consumption = "0kW",
+	energy_consumption = "1kW",
 	movement_bonus = 0.0,
   },
   {
@@ -49,9 +49,9 @@ data:extend(
 	{
 		type = "electric",
 		usage_priority = "secondary-input",
-      buffer_capacity = "0kJ",
+        buffer_capacity = "0kJ",
 	},
-	energy_consumption = "0kW",
+	energy_consumption = "1kW",
 	movement_bonus = 0.0,
   },
   {
@@ -76,9 +76,9 @@ data:extend(
 	{
 		type = "electric",
 		usage_priority = "secondary-input",
-      buffer_capacity = "0kJ",
+        buffer_capacity = "0kJ",
 	},
-	energy_consumption = "0kW",
+	energy_consumption = "1kW",
 	movement_bonus = 0.0,
   },
 }

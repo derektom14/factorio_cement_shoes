@@ -31,3 +31,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 - Added settings to enable/disable concrete replacing stone path and stone path replacing concrete
 - Added setting to control volume of tile placement sound
+
+## 0.1.1
+
+- Don't crash while not wearing armor
+
+## 0.17.0
+
+- Work on 0.17
+- [IN PROGRESS] Refined concrete shoes
+- [IN PROGRESS] Refactor to decrease code size
